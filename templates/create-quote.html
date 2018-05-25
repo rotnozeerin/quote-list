@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+<body>
+   
+   <div class="container">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h4>Add New Quote</h4>
+         </div>
+         <div class="panel-body">
+            
+            <form class="form-horizontal" action = "{{ url_for('create') }}" method = "POST">
+              <fieldset>
+               
+                <div class="form-group">
+                  <label for="author" class="col-md-2 control-label">Author</label>
+
+                  <div class="col-md-10">
+                    <input class="form-control" id="author" name="author" type="text">
+                  </div>
+                </div>
+
+               
+                <div class="form-group">
+                  <label for="quote" class="col-md-2 control-label">Quote</label>
+
+                  <div class="col-md-10">
+                      <textarea class="form-control"  id="quote" name = "quote"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-10 col-md-offset-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+
+          </div>
+      </div>
+   </div>
+
+  
+</body>
+</html>
