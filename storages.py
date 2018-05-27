@@ -11,6 +11,8 @@ class AbstractBackend:
     def on_start(self):
         pass
 
+     def on_exit(self):
+        pass
 
 class InMemoryBackend(AbstractBackend):
     quotes = []
@@ -25,9 +27,14 @@ class InMemoryBackend(AbstractBackend):
 class DatabaseBackend(AbstractBackend):
 
     db = None
+    conn = None
 
     def on_start(self):
-       self.db = database_connection()
+       self.conn = database_connection()
+       self.db = self.conn.QuoteData
+    
+    def on_exit(self):
+        self.conn.close()
 
     def list_quotes(self):
         rows = self.db.Quotes.find()

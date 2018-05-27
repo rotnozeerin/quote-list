@@ -9,6 +9,5 @@ def database_connection():
     mongo_hostname = config['mongo_hostname']
     mongo_port = int(config['mongo_port'])
 
-    client = MongoClient(mongo_hostname, mongo_port)
-    mongodb = client.QuoteData
-    return mongodb
+    connection = MongoClient(mongo_hostname, mongo_port)
+    return connection
